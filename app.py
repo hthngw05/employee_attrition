@@ -40,7 +40,7 @@ def user_input_features():
     )
     number_project = st.sidebar.selectbox(
         'Number of Projects', 
-        options=list(range(int(X['number_project'].min()), int(X['number_project'].max()) + 1)),
+        options=list(range(int(X['number_project'].min()) - 2, int(X['number_project'].max()) + 5)),
         index=list(range(int(X['number_project'].min()), int(X['number_project'].max()) + 1)).index(int(X['number_project'].mean()))
     )
     average_monthly_hours = st.sidebar.slider(
