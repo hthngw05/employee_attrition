@@ -38,8 +38,10 @@ def user_input_features():
     last_evaluation = st.sidebar.slider(
         'Last Evaluation', X['last_evaluation'].min(), X['last_evaluation'].max(), X['last_evaluation'].mean()
     )
-    number_project = st.sidebar.slider(
-        'Number of Projects', int(X['number_project'].min()), int(X['number_project'].max()), int(X['number_project'].mean())
+    number_project = st.sidebar.selectbox(
+        'Number of Projects', 
+        options=list(range(int(X['number_project'].min()), int(X['number_project'].max()) + 1)),
+        index=list(range(int(X['number_project'].min()), int(X['number_project'].max()) + 1)).index(int(X['number_project'].mean()))
     )
     average_monthly_hours = st.sidebar.slider(
         'Average Monthly Hours', int(X['average_monthly_hours'].min()), int(X['average_monthly_hours'].max()), int(X['average_monthly_hours'].mean())
