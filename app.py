@@ -37,7 +37,8 @@ def user_input_features():
          help="How satisfied is the employee? (0 = not satisfied, 1 = fully satisfied)"
     )
     last_evaluation = st.sidebar.slider(
-        'Last Evaluation', X['last_evaluation'].min(), X['last_evaluation'].max(), X['last_evaluation'].mean()
+        'Last Evaluation', X['last_evaluation'].min(), X['last_evaluation'].max(), X['last_evaluation'].mean(),
+         help="How well the employee was evaluated (0 to 1)"
     )
     number_project = st.sidebar.selectbox(
         'Number of Projects', 
@@ -48,7 +49,8 @@ def user_input_features():
         'Average Monthly Hours', int(X['average_monthly_hours'].min()), int(X['average_monthly_hours'].max()), int(X['average_monthly_hours'].mean())
     )
     time_spend_company = st.sidebar.slider(
-        'Time Spent at Company', int(X['time_spend_company'].min()), int(X['time_spend_company'].max()), int(X['time_spend_company'].mean())
+        'Time Spent at Company', int(X['time_spend_company'].min()), int(X['time_spend_company'].max()), int(X['time_spend_company'].mean()),
+         help="Number of years the employee has stayed at the company"
     )
     work_accident = st.sidebar.selectbox('Work Accident', ['No', 'Yes'])
     work_accident = 1 if work_accident == 'Yes' else 0
@@ -145,7 +147,7 @@ if uploaded_file is not None:
         # save the results to a new CSV file
         csv_download = uploaded_df.to_csv(index=False).encode('utf-8')
         st.download_button(
-            label="Download Predictions as CSV",
+            label="📥 Download Predictions",
             data=csv_download,
             file_name='employee_predictions.csv',
             mime='text/csv'
