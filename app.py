@@ -33,7 +33,8 @@ st.sidebar.header("Specify User Input Features")
 
 def user_input_features():
     satisfaction_level = st.sidebar.slider(
-        'Satisfaction Level', X['satisfaction_level'].min(), X['satisfaction_level'].max(), X['satisfaction_level'].mean()
+        'Satisfaction Level', X['satisfaction_level'].min(), X['satisfaction_level'].max(), X['satisfaction_level'].mean(),
+         help="How satisfied is the employee? (0 = not satisfied, 1 = fully satisfied)"
     )
     last_evaluation = st.sidebar.slider(
         'Last Evaluation', X['last_evaluation'].min(), X['last_evaluation'].max(), X['last_evaluation'].mean()
